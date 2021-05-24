@@ -150,3 +150,35 @@ strong{
     margin: 2px;
     border: none;
 }
+
+.marked{
+    background-color: #808080;
+}
+
+.divInsideCart{
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    height: 60px;
+    margin-bottom: 10px;
+    overflow-x: auto
+}
+#divCardContent{
+    display: flex;
+    flex-direction: column;
+}
+.divClassSpan{
+    display: flex;
+    justify-content: space-between;
+}
+
+.divLotomania{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
