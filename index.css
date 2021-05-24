@@ -1,0 +1,152 @@
+ul{
+    list-style: none
+}
+ul, li{
+    display: flex;
+    font-size: 20px;
+    float: left;
+    margin-right: 20px;
+    align-items: center;
+    font-weight:bold;
+}
+#title{
+    font-size: 50px
+}
+
+header{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.123);
+}
+
+body{
+    color: rgb(94, 86, 86);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    display:flex;
+    flex-direction: column;
+    background-color: rgba(182, 170, 170, 0.158)
+}
+h1{
+    font-size: 30px;
+    font-weight:unset;
+    color: grey;
+}
+strong{
+    color: black;
+}
+
+#container{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#cartButtons{
+    display: flex;
+    justify-content: space-between;
+}
+
+#card1{
+    width:70%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+#numbers{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#card2{
+    width: 25%;
+    height: 50%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#save {
+    background-color: rgba(182, 170, 170, 0.555);
+    border-top: 1px solid rgba(0, 0, 0, 0.123);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 50px;
+    color: rgb(21, 230, 150);
+    font-weight: 900;
+}
+
+.btn-loto{
+    border-radius: 20px;
+    padding: 10px 30px 10px 30px;
+    font-weight: 900;
+    margin-right: 30px;
+    font-size: 12px;
+}
+#lotofacil{
+    border: 2px solid purple;
+    color: purple;
+    background-color: white;
+}
+
+#mega{
+    border: 2px solid green;
+    color: white;
+    background-color: rgb(48, 168, 48);
+}
+
+#lotomania{
+    border: 2px solid orange;
+    color: orange;
+    background-color: white;
+}
+
+.btn-completeOrClear{
+    padding: 20px 30px 20px 30px;
+    background-color: white;
+    border: 1px solid rgb(21, 230, 150);
+    color: rgb(33, 241, 162);
+    border-radius: 10px;
+    font-weight: 900;
+}
+
+#addCart{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px 10px 30px;
+    color: rgb(33, 241, 162);
+    border: 1px solid rgb(21, 230, 150);
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+
+
+
+.myNumber{
+    color: white;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 2px;
+    border: none;
+}

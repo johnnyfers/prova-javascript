@@ -11,43 +11,61 @@
 
 <body>
     <header>
+        <ul>
+            <li id="title">TGL</li>
+            <li>Home</li>
+        </ul>
+
+        <ul>
+            <li>Account</li>
+            <li>Log out --></li>
+        </ul>
 
     </header>
 
     <div id="container">
-        <section>
-            <h1> NEW BET FOR MEGA-SENA</h1>
+        <section id="card1">
+            <h1><strong>NEW BET</strong>  FOR MEGA-SENA</h1>
 
             <h3> Choose a game</h3>
 
             <div id="buttons">
-                <button id="lotofacil">Lotofácil</button>
-                <button id="mega"> Mega-Sena</button>
-                <button id="lotomania"> Lotomania</button>
+                <button class="btn-loto" id="lotofacil">Lotofácil</button>
+                <button class="btn-loto"  id="mega"> Mega-Sena</button>
+                <button class="btn-loto"  id="lotomania"> Lotomania</button>
             </div>
             
             <h4>Fill your bet </h4>
 
-            <p id="gameDescription"> sfsddsfsdf</p>
+            <p id="gameDescription"></p>
 
             <div id="numbers"> </div>
+
+            <div id="cartButtons"> 
+                <div id="div-completeOrClear">
+                    <button class="btn-completeOrClear">Complete game</button>
+                    <button class="btn-completeOrClear">Clear game</button>
+                </div>
+
+                <button id="addCart"><img src="https://image.flaticon.com/icons/png/512/34/34568.png" width="20" height="20"> Add to Cart</button>
+            </div>
         </section>
 
-        <section>
+        <section id="card2">
             <h2>Cart</h2>
             <div id="cardContent"></div>
 
-            <h2>CART TOTAL: R$</h2><span id="cartPrice"></span>
+            <h2>CART TOTAL: R$ <span id="cartPrice">0:00</span></h2>
             
             <div id="save">
-
+                SAVE
             </div>
         </section>
 
     </div>
 
 
-    <script scr="./index.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
