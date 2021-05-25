@@ -104,15 +104,33 @@ strong{
 }
 
 #mega{
-    border: 2px solid green;
-    color: white;
-    background-color: rgb(48, 168, 48);
+    border: 2px solid  rgb(48, 168, 48);
+    color: rgb(48, 168, 48);
+    background-color: white;
 }
 
 #lotomania{
     border: 2px solid orange;
     color: orange;
     background-color: white;
+}
+
+#lotofacil:hover{
+    color: white;
+    background-color: purple;
+    transition: 0.5s;
+}
+
+#mega:hover{
+    color: white;
+    background-color: rgb(48, 168, 48);
+    transition: 0.5s;
+}
+
+#lotomania:hover{
+    color: white;
+    background-color: orange;
+    transition: 0.5s;
 }
 
 .btn-completeOrClear{

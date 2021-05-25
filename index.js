@@ -12,7 +12,7 @@ let setButton = ''
 
 let numbersArray = []
 
-//get description and create buttons
+//get description, create buttons and select
 buttonLotofacil.addEventListener('click', () => {
     numbersDiv.innerText = ''
     numbersArray = []
@@ -36,6 +36,31 @@ buttonLotofacil.addEventListener('click', () => {
                         return numbersArray
                     } else {
                         return console.log('limite de 6 números')
+                    }
+                })
+
+                buttonComplete.addEventListener('click', () => {
+                    if (setButton == 'lotofacil') {
+                        let divInsideClass = document.querySelectorAll('.myNumber')
+                        divInsideClass.forEach((item, index) => {
+                            if (item.style.background !== '#808080' && numbersArray.length < 15) {
+                                divInside.value = Math.ceil(Math.random() * (25 - 0) + 1)
+
+                                numbersArray.push(divInside.value)
+                            }
+                            if ((index + 1) == numbersArray[0] || (index + 1) == (numbersArray[1])
+                                || (index + 1) == numbersArray[2] || (index + 1) == numbersArray[3]
+                                || (index + 1) == numbersArray[4] || (index + 1) == numbersArray[5]
+                                || (index + 1) == numbersArray[6] || (index + 1) == (numbersArray[7])
+                                || (index + 1) == numbersArray[8] || (index + 1) == numbersArray[9]
+                                || (index + 1) == numbersArray[10] || (index + 1) == numbersArray[11]
+                                || (index + 1) == numbersArray[12] || (index + 1) == (numbersArray[13])
+                                || (index + 1) == numbersArray[14]) {
+
+                                item.style.background = '#808080'
+                            }
+                            return numbersArray
+                        })
                     }
                 })
 
@@ -72,6 +97,25 @@ buttonMega.addEventListener('click', () => {
                     }
                 })
 
+                buttonComplete.addEventListener('click', () => {
+                    if (setButton == 'mega') {
+                        let divInsideClass = document.querySelectorAll('.myNumber')
+                        divInsideClass.forEach((item, index) => {
+                            if (item.style.background !== '#808080' && numbersArray.length < 6) {
+                                divInside.value = Math.ceil(Math.random() * (60 - 0) + 1)
+
+                                numbersArray.push(divInside.value)
+                            }
+                            if ((index + 1) == numbersArray[0] || (index + 1) == (numbersArray[1])
+                                || (index + 1) == numbersArray[2] || (index + 1) == numbersArray[3]
+                                || (index + 1) == numbersArray[4] || (index + 1) == numbersArray[5]) {
+                                item.style.background = '#808080'
+                            }
+                            return numbersArray
+                        })
+                    }
+                })
+
                 numbersDiv.appendChild(divInside)
             }
             return setButton = 'mega'
@@ -103,12 +147,31 @@ buttonLotomania.addEventListener('click', () => {
                     }
                 })
 
+                buttonComplete.addEventListener('click', () => {
+                    if (setButton == 'lotomania') {
+                        let divInsideClass = document.querySelectorAll('.myNumber')
+                        divInsideClass.forEach((item, index) => {
+                            if (item.style.background !== '#808080' && numbersArray.length < 5) {
+                                divInside.value = Math.ceil(Math.random() * (80 - 0) + 1)
+
+                                numbersArray.push(divInside.value)
+                            }
+                            if ((index + 1) == numbersArray[0] || (index + 1) == (numbersArray[1]) || (index + 1) == numbersArray[2] || (index + 1) == numbersArray[3] || (index + 1) == numbersArray[4]) {
+                                item.style.background = '#808080'
+                            }
+                            return numbersArray
+                        })
+                    }
+                })
+
                 numbersDiv.appendChild(divInside)
+
             }
 
             return setButton = 'lotomania'
         })
 })
+let buttonComplete = document.querySelector('#completeGame')
 
 //cart functions and vars
 
@@ -150,11 +213,9 @@ buttonClear.addEventListener('click', () => {
     }
 })
 
-
 const arrayLotofacil = []
 const arrayMega = []
 const arrayLotomania = []
-
 
 //add item ao carrinho
 buttonAddToCart.addEventListener('click', () => {
