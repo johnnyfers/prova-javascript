@@ -12,7 +12,7 @@ let setButton = ''
 
 let numbersArray = []
 
-//get description
+//get description and create buttons
 buttonLotofacil.addEventListener('click', () => {
     numbersDiv.innerText = ''
     numbersArray = []
@@ -155,6 +155,7 @@ const arrayLotofacil = []
 const arrayMega = []
 const arrayLotomania = []
 
+
 //add item ao carrinho
 buttonAddToCart.addEventListener('click', () => {
     const divInsideCart = document.createElement('div')
@@ -163,6 +164,7 @@ buttonAddToCart.addEventListener('click', () => {
     switch (setButton) {
 
         case 'lotofacil':
+            divInsideCart.setAttribute('gameType', 'lotofacil')
             fetch('games.json').then((res) => { return res.json() }).then((data) => {
                 arrayLotofacil.push('.')
                 return divInsideCart.innerHTML = `<div> ${numbersArray}</div>
@@ -173,6 +175,7 @@ buttonAddToCart.addEventListener('click', () => {
             })
             break;
         case 'mega':
+            divInsideCart.setAttribute('gameType', 'mega')
             fetch('games.json').then((res) => { return res.json() }).then((data) => {
                 arrayMega.push('')
                 return divInsideCart.innerHTML = `<div> ${numbersArray}</div>
@@ -183,6 +186,7 @@ buttonAddToCart.addEventListener('click', () => {
             })
             break;
         case 'lotomania':
+            divInsideCart.setAttribute('gameType', 'lotomania')
             fetch('games.json').then((res) => { return res.json() }).then((data) => {
                 arrayLotomania.push('.')
                 return divInsideCart.innerHTML = `<div> ${numbersArray}</div>
@@ -193,10 +197,20 @@ buttonAddToCart.addEventListener('click', () => {
             })
             break;
         default:
+            return false
             break;
     }
 
     divCardContent.appendChild(divInsideCart)
+
+    divInsideCartClass = document.querySelectorAll('.divInsideCart')
+
+    divInsideCartClass.forEach((item) => {
+        item.addEventListener('click', () => {
+            item.setAttribute('marked', 'true')
+            return console.log(item)
+        })
+    })
 
     getResult()
 })
@@ -211,3 +225,22 @@ function getResult() {
     })
 }
 
+function deleteRow() {
+    divInsideCartClass.forEach((item) => {
+        item.addEventListener('click', () => {
+            if (item.getAttribute('marked') && item.getAttribute('gameType') == 'lotofacil') {
+                arrayLotofacil.pop();
+                getResult()
+                return item.parentNode.removeChild(item)
+            } else if (item.getAttribute('marked') && item.getAttribute('gameType') == 'mega') {
+                arrayMega.pop();
+                getResult()
+                return item.parentNode.removeChild(item)
+            } else if (item.getAttribute('marked') && item.getAttribute('gameType') == 'lotomania') {
+                arrayLotomania.pop();
+                getResult()
+                return item.parentNode.removeChild(item)
+            }
+        })
+    })
+}
