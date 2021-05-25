@@ -45,7 +45,7 @@ buttonLotofacil.addEventListener('click', () => {
                         divInsideClass.forEach((item, index) => {
                             if (item.style.background !== '#808080' && numbersArray.length < 15) {
                                 divInside.value = Math.ceil(Math.random() * (25 - 0) + 1)
-
+                                
                                 numbersArray.push(divInside.value)
                             }
                             if ((index + 1) == numbersArray[0] || (index + 1) == (numbersArray[1])
@@ -258,7 +258,6 @@ buttonAddToCart.addEventListener('click', () => {
             })
             break;
         default:
-            return false
             break;
     }
 

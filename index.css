@@ -200,3 +200,11 @@ strong{
     flex-direction: column;
     justify-content: space-between;
 }
+
+button{
+    cursor: pointer;
+}
+
+img{
+    cursor: pointer;
+}
