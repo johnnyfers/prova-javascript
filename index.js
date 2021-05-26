@@ -23,6 +23,7 @@ let totalPagamento = document.querySelector('#cartPrice')
 
 
 
+
 window.onload = function getButton() {
 
     fetch('games.json').then((res) => { return res.json() }).then((data) => {
@@ -32,6 +33,8 @@ window.onload = function getButton() {
             myButton.style.background = `${item.color}`
             myButton.innerHTML = `${item.type}`
             buttonsDiv.appendChild(myButton)
+
+            document.getElementsByClassName('btn-loto')[0].click()
 
             myButton.addEventListener('click', () => {
                 numbersArray = []
@@ -66,7 +69,6 @@ window.onload = function getButton() {
 
         })
     })
-
 }
 
 
@@ -78,6 +80,8 @@ buttonClear.addEventListener('click', () => {
     allMynumbers.forEach((item) => { return item.style.background = '#808080' })
 })
 
+let totalArray = [0]
+
 buttonAddToCart.addEventListener('click', () => {
     const divInsideCart = document.createElement('div')
     divInsideCart.classList.add('divInsideCart')
@@ -85,7 +89,11 @@ buttonAddToCart.addEventListener('click', () => {
     fetch('games.json').then((res) => { return res.json() }).then((data) => {
 
         if (numbersArray.length == data.types[setButton].maxNumber) {
-            divInsideCart.setAttribute(`${data.types[setButton].type}`)
+            divInsideCart.setAttribute(`gamePrice`, `${data.types[setButton].price}`)
+
+            totalArray.push(parseFloat(divInsideCart.getAttribute('gamePrice')))
+
+            getResult()
 
             divInsideCart.innerHTML = `<div> ${numbersArray}</div>
                 <div class="divClassSpan"><span style="color:${data.types[setButton].color};">${data.types[setButton].type}</span>
@@ -104,18 +112,33 @@ buttonAddToCart.addEventListener('click', () => {
                 })
             })
         }
-
-        getResult()
     })
 
 })
 
 function deleteRow() {
+
     divInsideCartClass.forEach((item) => {
         item.addEventListener('click', () => {
-            return item.parentNode.removeChild(item);
+            if (item.getAttribute('marked')) {
+                totalArray.pop()
+                item.parentNode.removeChild(item);
+            }
+            getResult() 
         })
     })
+}
+
+function getResult() {
+    const myResult = totalArray.reduce((acumulado, atual) => {
+        return acumulado + atual
+    })
+
+    totalPagamento.innerHTML = `${myResult}`
+
+    if (myResult == null) {
+        totalPagamento.innerHTML = `0,00`
+    }
 }
 
 
@@ -323,9 +346,9 @@ buttonAddToCart.addEventListener('click', () => {
                      <div>`
         })
     })
-    
+
        switch (setButton) {
-   
+
            case 'lotofacil':
                divInsideCart.setAttribute('gameType', 'lotofacil')
                fetch('games.json').then((res) => { return res.json() }).then((data) => {
@@ -354,7 +377,7 @@ buttonAddToCart.addEventListener('click', () => {
                    arrayLotomania.push('.')
                    return divInsideCart.innerHTML = `<div> ${numbersArray}</div>
                     <div class="divClassSpan"><span style="color:${data.types[2].color};">${data.types[2].type}</span>
-                    <span>R$${data.types[2].price}</span> 
+                    <span>R$${data.types[2].price}</span>
                    <span onclick="deleteRow()"><img src="https://image.flaticon.com/icons/png/512/2782/2782872.png" width="20" height="20"></span>
                    <div>`
                })
@@ -362,7 +385,7 @@ buttonAddToCart.addEventListener('click', () => {
            default:
                break;
        }
-       
+
 
     divCardContent.appendChild(divInsideCart)
 
