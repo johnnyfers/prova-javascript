@@ -91,11 +91,13 @@ strong{
 }
 
 .btn-loto{
+    border: none;
     border-radius: 20px;
     padding: 10px 30px 10px 30px;
     font-weight: 900;
     margin-right: 30px;
     font-size: 12px;
+    color: white;
 }
 #lotofacil{
     border: 2px solid purple;
@@ -203,8 +205,13 @@ strong{
 
 button{
     cursor: pointer;
+    outline:none;
 }
 
 img{
     cursor: pointer;
+}
+
+.cartContentPrincipal{
+    display: flex;
 }
