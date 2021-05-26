@@ -25,6 +25,7 @@ let totalPagamento = document.querySelector('#cartPrice')
 
 
 window.onload = function getButton() {
+    getResult()
 
     fetch('games.json').then((res) => { return res.json() }).then((data) => {
         data.types.forEach((item, index) => {
@@ -93,8 +94,6 @@ buttonAddToCart.addEventListener('click', () => {
 
             totalArray.push(parseFloat(divInsideCart.getAttribute('gamePrice')))
 
-            getResult()
-
             divInsideCart.innerHTML = `<div> ${numbersArray}</div>
                 <div class="divClassSpan"><span style="color:${data.types[setButton].color};">${data.types[setButton].type}</span>
                 <span>R$${data.types[setButton].price}</span>
@@ -103,10 +102,13 @@ buttonAddToCart.addEventListener('click', () => {
 
             divCardContent.appendChild(divInsideCart)
 
+            getResult()
+
             divInsideCartClass = document.querySelectorAll('.divInsideCart')
 
             divInsideCartClass.forEach((item) => {
                 item.addEventListener('click', () => {
+                    item.setAttribute('toBeRemoved', `${data.types[setButton].type}`)
                     item.setAttribute('marked', 'true')
                     return console.log(item)
                 })
@@ -121,22 +123,30 @@ function deleteRow() {
     divInsideCartClass.forEach((item) => {
         item.addEventListener('click', () => {
             if (item.getAttribute('marked')) {
-                totalArray.pop()
                 item.parentNode.removeChild(item);
+                totalArray.splice(totalArray.indexOf(parseFloat(item.getAttribute('gamePrice'))), 1)
             }
             getResult() 
         })
     })
 }
 
+let emptyCart = document.querySelector('#emptyCart')
+
 function getResult() {
+    if(divCardContent.children.length == 0){
+        emptyCart.style.display = 'inline-block'
+    }else{
+        emptyCart.style.display = 'none'
+    }
+
     const myResult = totalArray.reduce((acumulado, atual) => {
         return acumulado + atual
     })
 
-    totalPagamento.innerHTML = `${myResult}`
+    totalPagamento.innerHTML = `${myResult.toFixed(2).replace('.', ',')}`
 
-    if (myResult == null) {
+    if (totalArray.length == 0) {
         totalPagamento.innerHTML = `0,00`
     }
 }
