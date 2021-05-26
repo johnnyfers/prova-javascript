@@ -69,7 +69,7 @@ strong{
 }
 
 #card2{
-    width: 25%;
+    width: 27%;
     height: 50%;
     background-color: white;
     padding: 10px;
@@ -175,8 +175,8 @@ strong{
     background-color: #808080;
 }
 
-.divInsideCart{
-    border: 1px solid rgba(0, 0, 0, 0.123);
+#sideCartDiv{
+    border: 0.5px solid rgba(0, 0, 0, 0.123);
     border-radius: 10px;
     padding: 5px;
     display: flex;
@@ -186,12 +186,21 @@ strong{
     box-sizing: border-box;
     height: 60px;
     margin-bottom: 10px;
+    margin-left: 5px;
     overflow-x: auto
+
 }
+
+.divInsideCart{
+    display: flex;
+    align-items: center
+}
+
 #divCardContent{
     display: flex;
     flex-direction: column;
 }
+
 .divClassSpan{
     display: flex;
     justify-content: space-between;
