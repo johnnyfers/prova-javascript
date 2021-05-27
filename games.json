@@ -29,7 +29,7 @@
     },
     {
       "type": "Dupla-Sena",
-      "description": "Escolha 5 números dos 80 disponíveis na quina. 5, 4, 3 ou 2 acertos. São seis sorteios semanais e seis chances de ganhar.",
+      "description": "Escolha 5 números dos 10 disponíveis na quina. 5, 4, 3 ou 2 acertos. São seis sorteios semanais e seis chances de ganhar.",
       "range": 10,
       "price": 5,
       "maxNumber": 5,
