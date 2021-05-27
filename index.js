@@ -47,8 +47,13 @@ window.onload = function getButton() {
 
                     divInside.style.background = '#808080'
                     divInside.value = i
-                    divInside.innerHTML = i;
-
+                    
+                    if(i < 10){
+                        divInside.innerHTML = `0${i}`;
+                    }else{
+                        divInside.innerHTML = i;
+                    }
+                    
                     divInside.addEventListener('click', () => {
                         if (numbersArray.length < item.maxNumber && numbersArray.indexOf(divInside.value) == -1) {
                             divInside.setAttribute('clicked', 'true')

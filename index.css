@@ -41,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(182, 170, 170, 0.158);
+    overflow-x: hidden;
 }
 h1 {
     font-size: 30px;
