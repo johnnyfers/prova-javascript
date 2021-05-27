@@ -23,23 +23,25 @@ window.onload = function getButton() {
     fetch('games.json').then((res) => { return res.json() }).then((data) => {
         data.types.forEach((item, index) => {
             let myButton = document.createElement('button')
+            
             myButton.classList.add('btn-loto')
             myButton.style.background = `white`
             myButton.style.color = `${item.color}`
             myButton.style.border = `3px solid ${item.color}`
             myButton.innerHTML = `${item.type}`
+            
             buttonsDiv.appendChild(myButton)
 
             document.getElementsByClassName('btn-loto')[0].click()
 
             myButton.addEventListener('click', () => {
-
                 gameSpan.innerHTML = `${item.type.toUpperCase()}`
+                
                 numbersArray = []
                 numbersDiv.innerText = ''
-                descriptionGame.innerHTML = data.types[index].description
+                descriptionGame.innerHTML = item.description
 
-                for (let i = 1; i <= data.types[index].range; i++) {
+                for (let i = 1; i <= item.range; i++) {
                     const divInside = document.createElement('button')
                     divInside.classList.add('myNumber')
 
@@ -48,9 +50,9 @@ window.onload = function getButton() {
                     divInside.innerHTML = i;
 
                     divInside.addEventListener('click', () => {
-                        if (numbersArray.length < data.types[index].maxNumber && numbersArray.indexOf(divInside.value) == -1) {
+                        if (numbersArray.length < item.maxNumber && numbersArray.indexOf(divInside.value) == -1) {
                             divInside.setAttribute('clicked', 'true')
-                            divInside.style.background = `${data.types[index].color}`
+                            divInside.style.background = `${item.color}`
                             numbersArray.push(divInside.value)
                             return numbersArray
                         } else {
@@ -64,13 +66,9 @@ window.onload = function getButton() {
 
                 return setButton
             })
-
         })
     })
 }
-
-
-
 
 buttonClear.addEventListener('click', () => {
     numbersArray = []
@@ -123,10 +121,11 @@ buttonAddToCart.addEventListener('click', () => {
             })
         }
 
-        document.querySelector('#clearGame').click()
+        if (numbersArray.length == data.types[setButton].maxNumber) {
+            document.querySelector('#clearGame').click()
+        }
 
     })
-
 })
 
 function deleteRow() {
@@ -167,7 +166,6 @@ buttonComplete.addEventListener('click', () => {
         while (numbersArray.length < data.types[setButton].maxNumber) {
             let match = Math.ceil(Math.random() * (data.types[setButton].range - 0) + 1)
 
-            console.log(match)
             allMynumbers.forEach((item) => {
                 if (match == item.value && !item.getAttribute('clicked')) {
                     item.setAttribute('clicked', 'true')
